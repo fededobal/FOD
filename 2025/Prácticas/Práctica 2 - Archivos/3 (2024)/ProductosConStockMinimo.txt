@@ -1,0 +1,22 @@
+----- PRODUCTOS CON STOCK MENOR AL STOCK MÍNIMO -----
+
+Producto1
+Descripcion del producto 1
+Stock disponible: -11; Precio: 300.00
+---------------------------------------------
+Producto4
+Descripcion del producto 4
+Stock disponible: -34; Precio: 100.00
+---------------------------------------------
+Producto9
+Descripcion del producto 9
+Stock disponible: -21; Precio: 250.00
+---------------------------------------------
+Producto13
+Descripcion del producto 13
+Stock disponible: 16; Precio: 60.00
+---------------------------------------------
+Producto21
+Descripcion del producto 21
+Stock disponible: 15; Precio: 125.00
+---------------------------------------------

@@ -1,0 +1,36 @@
+----- CLIENTE CÓDIGO #101 -----
+Nombre y apellido: Juan Pérez
++ TOTAL 1/2023:
+2500.000
++ TOTAL 2/2023:
+1200.000
+++ TOTAL 2023:
+3700.000
+----- CLIENTE CÓDIGO #202 -----
+Nombre y apellido: María Gómez
++ TOTAL 3/2024:
+1750.000
+++ TOTAL 2024:
+1750.000
+----- CLIENTE CÓDIGO #303 -----
+Nombre y apellido: Pablo Ramírez
++ TOTAL 1/2024:
+1100.000
++ TOTAL 2/2024:
+2500.000
+++ TOTAL 2024:
+3600.000
+----- CLIENTE CÓDIGO #404 -----
+Nombre y apellido: Ana Torres
++ TOTAL 12/2023:
+700.000
+++ TOTAL 2023:
+700.000
++ TOTAL 1/2024:
+1800.000
++ TOTAL 2/2024:
+2000.000
+++ TOTAL 2024:
+3800.000
+
+Total obtenido por la empresa: $13550.000

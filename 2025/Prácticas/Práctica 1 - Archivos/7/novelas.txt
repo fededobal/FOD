@@ -1,0 +1,30 @@
+101 1500.50 Drama
+Rayuela
+102 1200.00 Ciencia Ficción
+El eternauta
+103 1800.75 Terror
+El túnel
+104 950.30 Romance
+Boquitas pintadas
+105 2000.00 Policial
+Sobre héroes y tumbas
+106 1750.40 Drama
+Los siete locos
+107 2100.00 Fantasía
+Los Sorias
+108 1350.80 Misterio
+El sueño de los héroes
+109 890.50 Histórica
+Zama
+110 1600.90 Ciencia Ficción
+La invención de Morel
+111 1950.60 Policial
+Crimenes imperceptibles
+112 1100.00 Terror
+Las cosas que perdimos en el fuego
+113 1450.30 Romance
+El amor en los tiempos del cólera
+114 1800.50 Aventura
+Don Segundo Sombra
+115 1300.00 Fantasía
+Kryptonita

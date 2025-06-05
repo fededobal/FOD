@@ -1,0 +1,4 @@
+Codigo=1 Genero=1 Nombre=1 Duracion=1.00 Director=1 Precio=1.00
+Codigo=2 Genero=2 Nombre=2 Duracion=2.00 Director=2 Precio=2.00
+Novela bajada: Codigo=0 Genero= Nombre= Duracion=0.00 Director= Precio=0.00
+Codigo=4 Genero=4 Nombre=4 Duracion=4.00 Director=4 Precio=4.00

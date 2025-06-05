@@ -1,0 +1,10 @@
+1 60 20 300 Producto1
+Descripcion del producto 1
+4 50 20 100 Producto4
+Descripcion del producto 4
+9 40 20 250 Producto9
+Descripcion del producto 9
+13 80 20 60 Producto13
+Descripcion del producto 13
+21 65 20 125 Producto21
+Descripcion del producto 21
