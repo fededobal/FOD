@@ -1,3 +1,14 @@
+{
+    Suponga que tiene un archivo con información de los partidos de los últimos años de
+    los equipos de primera división del fútbol Argentino. Dicho archivo contiene: código de
+    equipo, nombre de equipo, año, código de torneo, código de equipo rival, goles a favor,
+    goles en contra, puntos obtenidos (0, 1 o 3 dependiendo de si perdió, ganó o empató el
+    partido). El archivo está ordenado por los siguientes criterios: año, código de torneo y
+    código de equipo.
+    Se le solicita definir las estructuras de datos necesarias y escribir el módulo que reciba
+    el archivo y genere un informe por pantalla.
+}
+
 program partidos;
 const
     VALOR_ALTO = 32700;
@@ -36,6 +47,7 @@ var
 begin
     reset(aP);
     leer(aP,p);
+    write('Informe resumen por equipo del fútbol Argentino');
     while(p.anio < VALOR_ALTO) do begin
         read(aP,p);
         anioAct := p.anio;
