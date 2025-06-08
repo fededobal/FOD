@@ -32,7 +32,7 @@ begin
     else
         p.anio := VALOR_ALTO;
 end;
-procedure cargarArchivo(var a:arcPartidos); // se dispone
+// procedure cargarArchivo(var a:arcPartidos); // se dispone
 procedure generarInforme(var aP:arcPartidos);
 var
     p:partido;
@@ -54,13 +54,13 @@ begin
         writeln('Anio ', anioAct);
         while((p.anio < VALOR_ALTO) and (p.anio = anioAct)) do begin
             torneoAct := p.codeTorneo;
-            writeln('Cod_torneo ', torneoAct);
+            writeln('   Cod_torneo ', torneoAct);
             maxPuntos := -1;
             eqGanador := '';
             while((p.anio < VALOR_ALTO) and (p.anio = anioAct) and (p.codeTorneo = torneoAct)) do begin
                 equipoAct := p.codeEq;
-                nomAct = p.nom;
-                writeln('Cod_equipo ', equipoAct, ' nombre equipo ', nomAct);
+                nomAct := p.nom;
+                writeln('       Cod_equipo ', equipoAct, ' nombre equipo ', nomAct);
                 totalGolesFav := 0;
                 totalGolesContra := 0;
                 totalDifGoles := 0;
@@ -81,13 +81,13 @@ begin
                     totalPuntos := totalPuntos + p.puntosObtenidos;
                     leer(aP,p);
                 end;
-                writeln('cantidad total de goles a favor equipo ', equipoAct, ': ', totalGolesFav);
-                writeln('cantidad total de goles en contra equipo ', equipoAct, ': ', totalGolesContra);
-                writeln('diferencia de gol: ', totalDifGoles);
-                writeln('cantidad de partidos ganados equipo ', equipoAct, ': ', cantPGanados);
-                writeln('cantidad de partidos perdidos equipo ', equipoAct, ': ', cantPPerdidos);
-                writeln('cantidad de partidos empatados equipo ', equipoAct, ': ', cantPEmpatados);
-                writeln('cantidad de puntos en el torneo equipo ', equipoAct, ': ', totalPuntos);
+                writeln('           cantidad total de goles a favor equipo ', equipoAct, ': ', totalGolesFav);
+                writeln('           cantidad total de goles en contra equipo ', equipoAct, ': ', totalGolesContra);
+                writeln('           diferencia de gol: ', totalDifGoles);
+                writeln('           cantidad de partidos ganados equipo ', equipoAct, ': ', cantPGanados);
+                writeln('           cantidad de partidos perdidos equipo ', equipoAct, ': ', cantPPerdidos);
+                writeln('           cantidad de partidos empatados equipo ', equipoAct, ': ', cantPEmpatados);
+                writeln('           cantidad de puntos en el torneo equipo ', equipoAct, ': ', totalPuntos);
                 writeln('----------------------------------------------');
                 if(totalPuntos > maxPuntos) then begin
                     maxPuntos := totalPuntos;
@@ -104,6 +104,6 @@ var
     aP:arcPartidos;
 begin
     assign(aP,'archivoPartidos');
-    cargarArchivo(aP); // se dispone
+    // cargarArchivo(aP); // se dispone
     generarInforme(aP);
 end.
