@@ -25,6 +25,37 @@
 program golosinas;
 const
     VALOR_ALTO = 32700;
+    cantDetalles = 20;
 type
     producto = record
-        
+        code:integer;
+        nom:string[30];
+        pVenta:real;
+        stockAct:integer;
+        stockMin:integer;
+    end;
+    venta = record
+        codeP:integer;
+        cant:integer;
+    end;
+
+    aMaestro = file of producto;
+    aDetalle = file of venta;
+    vDetalles = array[1..cantDetalles] of aDetalle;
+procedure actualizarMaestro(var aM:aMaestro; var aD:aDetalle);
+var
+
+begin
+    
+end;
+
+var
+    aM:aMaestro;
+    aD:aDetalle;
+begin
+    assign(aM,'maestro');
+    // crearMaestro(aM); // se dispone
+    assign(aD,'detalle');
+    // recibirDetalles(aD); // se dispone
+    actualizarMaestro(aM,aD);
+end.
