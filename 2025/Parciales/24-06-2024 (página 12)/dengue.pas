@@ -32,7 +32,7 @@ begin
     else
         r.code = VALOR_ALTO;
 end;
-procedure minimo(var vD:vDetalles; var vR:vDetalles; var min:regDet);
+procedure minimo(var vD:vDetalles; var vR:vRegDet; var min:regDet);
 var
     i:integer;
     pop:integer;
@@ -50,7 +50,7 @@ begin
 end;
 procedure actualizarMaestro(var aM:aMaestro; var vD:vDetalles);
 var
-    vR:vDetalles;
+    vR:vRegDet;
     min:regDet;
     rM:regMae;
     positivos:integer;
