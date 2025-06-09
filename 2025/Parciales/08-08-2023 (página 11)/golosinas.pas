@@ -42,20 +42,90 @@ type
     aMaestro = file of producto;
     aDetalle = file of venta;
     vDetalles = array[1..cantDetalles] of aDetalle;
-procedure actualizarMaestro(var aM:aMaestro; var aD:aDetalle);
-var
+    vVentas = array[1..cantDetalles] of venta;
 
+procedure leerMaestro(var a:aMaestro, var r:producto);
 begin
-    
+    if(not eof(a)) then
+        read(a,r)
+    else
+        r.code = VALOR_ALTO;
+end;
+procedure leerDetalle(var a:aDetalle, var r:producto);
+begin
+    if(not eof(a)) then
+        read(a,r)
+    else
+        r.code = VALOR_ALTO;
+end;
+procedure minimo(var vD:vDetalles; var vV:vVentas; var min:venta);
+var
+    i:integer;
+    pop:integer;
+begin
+    min.codeP := VALOR_ALTO;
+    for i := 1 to cantDetalles do begin
+        leerDetalle(vD[i],vV[i]);
+        if(vV[i].codeP < min.codeP) then begin
+            min := vV[i];
+            pop := i;
+        end;
+    end;
+    if(min.codeP <> VALOR_ALTO) then
+        leerDetalle(vD[pop],vV[pop]);
+end;
+procedure actualizarMaestro(var aM:aMaestro; var vD:vDetalles);
+var
+    i:smallint;
+    vV:vVentas;
+    min:venta;
+    stockAct:integer;
+begin
+    rewrite(aTXT);
+    reset(aM);
+    for i := 1 to cantDetalles do
+        reset(vD[i]);
+        
+    minimo(vD,vV,min);
+    while(min.code < VALOR_ALTO) do begin
+        leerMaestro(aM,p);
+        while(p.code <> min.codeP) do
+            leerMaestro(aM,p);
+        stockAct := 0;
+        while(p.code = min.codeP) do begin
+            stockAct := stockAct + 1;
+            minimo(vD,vV,min);
+        end;
+        p.stockAct := p.stockAct + stockAct;
+        write(aM,p);
+        if(stockAct * p.pVenta > 10000) then begin
+            writeln(aTXT,code);
+            writeln(aTXT,nom);
+            writeln(aTXT,pVenta);
+            writeln(aTXT,stockAct);
+            writeln(aTXT,stockMin);
+        end;
+    end;
+
+    for i := 1 to cantDetalles do
+        close(vD[i]);
+    close(aM);
+    close(aTXT);
 end;
 
 var
+    i:smallint;
+    iString:string[2];
     aM:aMaestro;
-    aD:aDetalle;
+    vD:vDetalles;
+    aTXT:text;
 begin
     assign(aM,'maestro');
     // crearMaestro(aM); // se dispone
-    assign(aD,'detalle');
-    // recibirDetalles(aD); // se dispone
-    actualizarMaestro(aM,aD);
+    for i := 1 to cantDetalles do begin
+        Str(i,iString);
+        assign(v[i], Concat('archivoDetalle_',iString));
+    end;
+    // recibirDetalles(vD); // se dispone
+    actualizarMaestro(aM,vD,aTXT);
 end.
