@@ -51,12 +51,12 @@ begin
     while(p.anio < VALOR_ALTO) do begin
         anioAct := p.anio;
         writeln('Anio ', anioAct);
-        while((p.anio < VALOR_ALTO) and (p.anio = anioAct)) do begin
+        while(p.anio = anioAct) do begin
             torneoAct := p.codeTorneo;
             writeln('   Cod_torneo ', torneoAct);
             maxPuntos := -1;
             eqGanador := '';
-            while((p.anio < VALOR_ALTO) and (p.anio = anioAct) and (p.codeTorneo = torneoAct)) do begin
+            while((p.anio = anioAct) and (p.codeTorneo = torneoAct)) do begin
                 equipoAct := p.codeEq;
                 nomAct := p.nom;
                 writeln('       Cod_equipo ', equipoAct, ' nombre equipo ', nomAct);
@@ -67,7 +67,7 @@ begin
                 cantPPerdidos := 0;
                 cantPEmpatados := 0;
                 totalPuntos := 0;
-                while((p.anio < VALOR_ALTO) and (p.anio = anioAct) and (p.codeTorneo = torneoAct) and (p.codeEq = equipoAct)) do begin
+                while((p.anio = anioAct) and (p.codeTorneo = torneoAct) and (p.codeEq = equipoAct)) do begin
                     totalGolesFav := totalGolesFav + p.golesAFavor;
                     totalGolesContra := totalGolesContra + p.golesEnContra;
                     totalDifGoles := totalDifGoles + (p.golesAFavor - p.golesEnContra);

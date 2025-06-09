@@ -44,14 +44,14 @@ type
     vDetalles = array[1..cantDetalles] of aDetalle;
     vVentas = array[1..cantDetalles] of venta;
 
-procedure leerMaestro(var a:aMaestro, var r:producto);
+procedure leerMaestro(var a:aMaestro; var r:producto);
 begin
     if(not eof(a)) then
         read(a,r)
     else
         r.code = VALOR_ALTO;
 end;
-procedure leerDetalle(var a:aDetalle, var r:producto);
+procedure leerDetalle(var a:aDetalle; var r:producto);
 begin
     if(not eof(a)) then
         read(a,r)
@@ -93,18 +93,17 @@ begin
             leerMaestro(aM,p);
         stockAct := 0;
         while(p.code = min.codeP) do begin
-            stockAct := stockAct + 1;
+            stockAct := stockAct + min.cant;
             minimo(vD,vV,min);
         end;
         p.stockAct := p.stockAct + stockAct;
+        seek(aM,filepos(aM)-1);
         write(aM,p);
-        if(stockAct * p.pVenta > 10000) then begin
-            writeln(aTXT,code);
-            writeln(aTXT,nom);
-            writeln(aTXT,pVenta);
-            writeln(aTXT,stockAct);
-            writeln(aTXT,stockMin);
-        end;
+        if(stockAct * p.pVenta > 10000) then
+            with p do begin
+                writeln(aTXT,code,nom);
+                writeln(aTXT,pVenta,stockAct,stockMin);
+            end;
     end;
 
     for i := 1 to cantDetalles do
