@@ -49,7 +49,6 @@ begin
     leer(aP,p);
     write('Informe resumen por equipo del fútbol Argentino');
     while(p.anio < VALOR_ALTO) do begin
-        read(aP,p);
         anioAct := p.anio;
         writeln('Anio ', anioAct);
         while((p.anio < VALOR_ALTO) and (p.anio = anioAct)) do begin
