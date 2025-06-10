@@ -29,7 +29,6 @@ var
 begin
     min.codeP := VALOR_ALTO;
     for i := 1 to CANTDET do begin
-        leerDetalle(vD[i],vR[i]);
         if(vR[i].codeP < min.codeP) then begin
             pop := i;
             min := vR[i];
@@ -49,8 +48,10 @@ var
     rM:regMae;
 begin
     reset(aM);
-    for i := 1 to CANTDET do
+    for i := 1 to CANTDET do begin
         reset(vD[i]);
+        leerDetalle(vD[i],vR[i]);
+    end;
 
     minimo(vD,vR,min);
     while(min.codeP <> VALOR_ALTO) do begin
