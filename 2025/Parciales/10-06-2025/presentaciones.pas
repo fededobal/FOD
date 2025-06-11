@@ -38,7 +38,7 @@ end;
 procedure generarInforme(var a:archivo);
 var
     p:presentacion;
-    cantAnios,cantPresentaciones,cantPresentacionesAct,anioAct,cEventoAct,maxDislikes,cArtistaAct,dislikesAct:integer;
+    likesAct,cantAnios,cantPresentaciones,cantPresentacionesAct,anioAct,cEventoAct,maxDislikes,cArtistaAct,dislikesAct:integer;
     minPuntaje,puntajeAct,promedioPresentacionesPorAnio:real;
     nEventoAct,nomArtistaMenosInfluyente,nomArtistaMasDislikes,nomArtistaMenosPuntaje,nArtistaAct:string[30];
 begin
@@ -64,19 +64,21 @@ begin
             while((p.anio = anioAct) and (p.codeEvento = cEventoAct)) do begin
                 nArtistaAct := p.nomArtista;
                 cArtistaAct := p.codeArtista;
+                likesAct := 0;
                 dislikesAct := 0;
                 puntajeAct := 0;
                 writeln('       Artista: ', nArtistaAct, ' (Código: ', cArtistaAct, ')');
                 while((p.anio = anioAct) and (p.codeEvento = cEventoAct) and (p.codeArtista = cArtistaAct)) do begin
-                    writeln('           Likes totales: ', p.likes);
-                    writeln('           Dislikes totales: ', p.dislikes);
+                    likesAct := likesAct + p.likes;
                     dislikesAct := dislikesAct + p.dislikes;
-                    writeln('           Diferencia: ', p.likes - p.dislikes);
-                    writeln('           Puntaje total del jurado: ', p.puntaje);
                     puntajeAct := puntajeAct + p.puntaje;
                     cantPresentacionesAct := cantPresentacionesAct + 1;
                     leer(a,p);
                 end;
+                writeln('           Likes totales: ', likesAct);
+                writeln('           Dislikes totales: ', dislikesAct);
+                writeln('           Diferencia: ', likesAct - dislikesAct);
+                writeln('           Puntaje total del jurado: ', puntajeAct);
                 calcularMenosInfluyente(nArtistaAct,puntajeAct,dislikesAct,minPuntaje,nomArtistaMenosPuntaje,maxDislikes,nomArtistaMasDislikes,nomArtistaMenosInfluyente);
             end;
             writeln('   El artista ', nomArtistaMenosInfluyente, ' fue el menos influyente de ', nEventoAct, ' del año ', anioAct);
