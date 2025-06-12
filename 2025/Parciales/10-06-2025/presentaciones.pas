@@ -24,7 +24,7 @@ procedure calcularMenosInfluyente(nom:string; punt:real; dis:integer; var minP:r
 begin
     if((punt = minP) and (dis = maxD)) then
         nomArtistaMenosInfluyente := nom
-    else begin
+    else
         if((punt = minP) and (dis > maxD)) then begin
             maxD := dis;
             nomMaxD := nom;
@@ -33,7 +33,6 @@ begin
             nomMinP := nom;
         end;
         nomArtistaMenosInfluyente := nom;
-    end;
 end;
 procedure generarInforme(var a:archivo);
 var
