@@ -64,6 +64,8 @@ begin
     minimo(vD,vR,min);
     while(min.code <> VALOR_ALTO) do begin
         leerMaestro(aM,rM);
+        if(rM.cantPos > 15) then
+            writeln('- MUNICIPIO CON MAS DE 15 POSITIVOS: Codigo: ',rM.code, ', Nombre: ',rM.nom);
         while(rM.code <> min.code) do
             leerMaestro(aM,rM);
         positivos := 0;
@@ -74,8 +76,6 @@ begin
         rM.cantPos := rM.cantPos + positivos;
         seek(aM,filepos(aM)-1);
         write(aM,rM);
-        if(rM.cantPos > 15) then
-            writeln('- MUNICIPIO CON MAS DE 15 POSITIVOS: Codigo: ',rM.code, ', Nombre: ',rM.nom);
     end;
 
     for i := 1 to DIMF do
